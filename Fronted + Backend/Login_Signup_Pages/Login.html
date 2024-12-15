@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Signup Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Parkinsans:wght@300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./login_style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <div class="form-header">
+                <h1>Welcome!</h1>
+                <p>Login/Register To Get Started</p>
+            </div>
+
+            <form class="login-form" id="login-form"> <!-- Added an id for the form -->
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Enter Your Name" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter Password" required>
+
+                <button type="submit" class="btn login-btn">Login</button>
+            </form>
+
+            <hr>
+
+            <div class="signup-options">
+                <p>Become a Member?</p>
+                <h2>Register As</h2>
+                <div class="signup-buttons">
+                    <a href="/Login_Signup_Pages/register-vendor.html" class="btn vendor-btn">Vendor</a>
+                    <a href="/Login_Signup_Pages/register-otheruser.html" class="btn contract-btn">Become Other Member</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault(); // Prevent the form from reloading the page
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: username, password })
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    // Redirect to the appropriate page based on the server response
+                    if (result.redirectUrl) {
+                        window.location.href = result.redirectUrl;
+                    } else {
+                        alert('Login successful!');
+                    }
+                } else {
+                    alert(result.message || 'Login failed. Please try again.');
+                }
+            } catch (err) {
+                console.error('Error:', err);
+                alert('Something went wrong. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>
