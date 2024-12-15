@@ -1,6 +1,6 @@
 # 🎉 Corporate Vendor Management System 🎉
 
-![Corporate Vendor Management System](https://via.placeholder.com/728x90.png?text=Corporate+Vendor+Management+System)
+
 
 ## 📋 Project Overview
 The **Corporate Vendor Management System** is a comprehensive solution for managing vendors, contracts, budgets, expenses, and more. It streamlines operations, improves collaboration between teams, and provides insightful dashboards for decision-making.
@@ -138,7 +138,15 @@ Other tables include: `Contracts`, `PurchaseOrders`, `BudgetAllocations`, `Expen
 
 ![image](https://github.com/user-attachments/assets/5c5f47a0-5e49-4703-a127-e67c79026294)
 
+6. **Login Signup Pages**
 
+![image](https://github.com/user-attachments/assets/a057937a-8ded-4b12-80f8-f5c60c06cfd5)
+
+
+![image](https://github.com/user-attachments/assets/3c75d1ce-b114-49ec-b1f6-7b9ec5763f49)
+
+
+   
 ---
 
 
